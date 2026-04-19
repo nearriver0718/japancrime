@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日本犯罪データベース - 事件考察＆掲示板</title>
+  <meta name="description" content="日本の犯罪事件・未解決事件のデータベース。209件以上の事件を収録。各事件について自由に議論・考察できる掲示板。">
+  <meta name="keywords" content="犯罪,未解決事件,事件,日本,データベース,考察,掲示板,殺人事件">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://japancrime.com/">
+  <!-- Open Graph -->
+  <meta property="og:title" content="日本犯罪データベース - 事件考察＆掲示板">
+  <meta property="og:description" content="日本の犯罪事件・未解決事件のデータベース。209件以上の事件を収録。各事件について自由に議論・考察できる掲示板。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://japancrime.com/">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="日本犯罪データベース">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="日本犯罪データベース">
+  <meta name="twitter:description" content="日本の犯罪事件・未解決事件のデータベース。209件以上の事件を収録。">
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "日本犯罪データベース",
+    "alternateName": "Japan Crime Database",
+    "url": "https://japancrime.com/",
+    "description": "日本の犯罪事件・未解決事件のデータベース。事件考察・議論掲示板。",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://japancrime.com/?search={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <!-- Google AdSense -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo" data-link>
+        <span class="logo-icon">🔎</span>
+        <div class="logo-text">
+          <h1>日本犯罪データベース</h1>
+          <span class="logo-sub">Japan Crime Database</span>
+        </div>
+      </a>
+      <div class="header-search">
+        <input type="text" id="searchInput" placeholder="事件名・キーワードで検索..." autocomplete="off">
+      </div>
+      <div class="header-stats">
+        <span id="statCases">-</span> 事件 / <span id="statPosts">-</span> 件の議論
+      </div>
+    </div>
+  </header>
+
+  <!-- 広告: ヘッダー下バナー -->
+  <div class="ad-slot ad-slot-top">
+    <div class="ad-container" id="ad-header">
+      <!-- AdSense: ヘッダーバナー (728x90 leaderboard) -->
+      <!-- <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+      <div class="ad-placeholder">広告スペース (728x90)</div>
+    </div>
+  </div>
+
+  <main class="main-content">
+    <div class="content-layout">
+      <div class="content-main" id="app"></div>
+
+      <aside class="sidebar" id="sidebar">
+        <!-- 広告: サイドバー上部 -->
+        <div class="ad-slot-sidebar">
+          <div class="ad-container" id="ad-sidebar-top">
+            <!-- AdSense: サイドバー (300x250 rectangle) -->
+            <!-- <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+            <div class="ad-placeholder">広告 (300x250)</div>
+          </div>
+        </div>
+
+        <!-- タグフィルター -->
+        <div class="sidebar-card" id="tagFilter">
+          <h3>タグで絞り込み</h3>
+          <div class="tag-cloud" id="tagCloud"></div>
+        </div>
+
+        <!-- 年代フィルター -->
+        <div class="sidebar-card" id="yearFilter">
+          <h3>年代で絞り込み</h3>
+          <div class="year-list" id="yearList"></div>
+        </div>
+
+        <!-- 関連書籍（Amazon アフィリエイト） -->
+        <div class="sidebar-card sidebar-card-books" id="bookRecommendations">
+          <h3>関連書籍</h3>
+          <div class="book-list">
+            <a href="https://www.amazon.co.jp/dp/4166613677?tag=YOUR_AFFILIATE_TAG" target="_blank" rel="noopener sponsored" class="book-item">
+              <div class="book-info">
+                <div class="book-title">未解決事件 闇に消えた真実</div>
+                <div class="book-meta">文春新書</div>
+              </div>
+            </a>
+            <a href="https://www.amazon.co.jp/dp/4101349185?tag=YOUR_AFFILIATE_TAG" target="_blank" rel="noopener sponsored" class="book-item">
+              <div class="book-info">
+                <div class="book-title">殺人犯はそこにいる</div>
+                <div class="book-meta">清水潔 / 新潮文庫</div>
+              </div>
+            </a>
+            <a href="https://www.amazon.co.jp/dp/4101283516?tag=YOUR_AFFILIATE_TAG" target="_blank" rel="noopener sponsored" class="book-item">
+              <div class="book-info">
+                <div class="book-title">凶悪 ある死刑囚の告発</div>
+                <div class="book-meta">「新潮45」編集部 / 新潮文庫</div>
+              </div>
+            </a>
+            <a href="https://www.amazon.co.jp/dp/4065233682?tag=YOUR_AFFILIATE_TAG" target="_blank" rel="noopener sponsored" class="book-item">
+              <div class="book-info">
+                <div class="book-title">つけびの村</div>
+                <div class="book-meta">高橋ユキ / 講談社文庫</div>
+              </div>
+            </a>
+          </div>
+          <div class="book-affiliate-note">* Amazon.co.jpアソシエイト</div>
+        </div>
+
+        <!-- 広告: サイドバー下部 -->
+        <div class="ad-slot-sidebar">
+          <div class="ad-container" id="ad-sidebar-bottom">
+            <!-- AdSense: サイドバー下部 (300x250) -->
+            <!-- <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+            <div class="ad-placeholder">広告 (300x250)</div>
+          </div>
+        </div>
+
+        <!-- 注意事項 -->
+        <div class="sidebar-card sidebar-card-warning">
+          <h3>ご利用上の注意</h3>
+          <ul class="warning-list">
+            <li>個人情報の投稿は厳禁です</li>
+            <li>被害者・遺族への配慮をお願いします</li>
+            <li>犯罪を助長する内容は禁止です</li>
+            <li>根拠のない誹謗中傷は禁止です</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- 広告: フッター上バナー -->
+  <div class="ad-slot ad-slot-bottom">
+    <div class="ad-container" id="ad-footer">
+      <!-- AdSense: フッターバナー (728x90) -->
+      <!-- <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+      <div class="ad-placeholder">広告スペース (728x90)</div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/" data-link>トップ</a>
+        <a href="/about">このサイトについて</a>
+        <a href="/rules">利用規約</a>
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/contact">お問い合わせ</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 日本犯罪データベース. All rights reserved.</p>
+      <p class="footer-disclaimer">当サイトは事件の考察・議論を目的としています。犯罪の助長や被害者への侮辱を目的としたものではありません。</p>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
