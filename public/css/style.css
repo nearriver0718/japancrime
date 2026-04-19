@@ -3,6 +3,15 @@
    Editorial dark theme — crime investigation mood
    ============================================ */
 
+/* 広告・アフィリエイト関連を非表示
+   （AdSense審査承認後、下記のブロックを削除して有効化） */
+.ad-slot,
+.ad-in-content,
+.ad-slot-sidebar,
+.sidebar-card-books {
+  display: none !important;
+}
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;

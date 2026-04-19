@@ -3,10 +3,10 @@ const path = require('path');
 const fs = require('fs');
 const rateLimit = require('express-rate-limit');
 
-// 本番環境: 永続ディスクにDBがなければseed.dbからコピー
+// DBがなければseed.dbからコピー（初回起動時、または永続ディスクが空の場合）
 const dbPath = process.env.DB_PATH || path.join(__dirname, 'forum.db');
 const seedPath = path.join(__dirname, 'seed.db');
-if (process.env.DB_PATH && !fs.existsSync(dbPath) && fs.existsSync(seedPath)) {
+if (!fs.existsSync(dbPath) && fs.existsSync(seedPath)) {
   const dataDir = path.dirname(dbPath);
   if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
   fs.copyFileSync(seedPath, dbPath);
