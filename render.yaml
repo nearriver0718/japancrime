@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: japancrime
+    runtime: node
+    plan: starter  # $7/month - always-on (AdSense審査には常時稼働が必要)
+    # plan: free  # 無料プラン（15分アクセスなしでスリープ）
+    buildCommand: npm ci
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DB_PATH
+        value: /data/forum.db
+      - key: SITE_URL
+        value: https://japancrime.com
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
+    autoDeploy: true
+    healthCheckPath: /api/stats

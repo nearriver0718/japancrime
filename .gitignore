@@ -1,7 +1,10 @@
 node_modules/
-*.db
+forum.db
+forum.db-shm
+forum.db-wal
 *.db-shm
 *.db-wal
+# seed.db は初回デプロイ時のテンプレートとしてGit管理する
 .env
 .env.local
 .DS_Store
